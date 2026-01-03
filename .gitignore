@@ -1,0 +1,46 @@
+# Node modules
+node_modules/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+logs/
+*.log
+
+# Build output
+dist/
+build/
+coverage/
+
+# Temporary files
+.tmp/
+temp/
+*.tmp
+*.swp
+*.swo
+
+# OS / IDE files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Docker
+# (Named volumes don’t show up as files, but bind-mounted folders do)
+postgres_data/
+docker-data/
+data/
+volumes/
+
+# Optional: ignore local database exports or backups
+*.sql
+*.dump
+*.backup
