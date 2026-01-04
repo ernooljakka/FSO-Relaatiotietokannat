@@ -1,0 +1,10 @@
+### Create a new blog
+POST http://localhost:3001/api/blogs
+Content-Type: application/json
+
+{
+  "author": "Charlie",
+  "title": "Third Blog Post",
+  "url": "https://example.com/third-blog",
+  "likes": 7
+}

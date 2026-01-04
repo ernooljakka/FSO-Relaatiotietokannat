@@ -1,18 +1,15 @@
-import pool from './db.js';
+import { Blog } from './models/blog.js';
 
 async function listBlogs() {
   try {
-    const result = await pool.query('SELECT * FROM blogs');
-    console.log("Blogs in database:");
-    const rows = result.rows;
+    await Blog.sync();
 
-    rows.map(b => {
-      console.log(`${b.author} "${b.title}" ${b.likes} likes` )
-    })
+    const blogs = await Blog.findAll();
+    blogs.forEach(b => {
+      console.log(`${b.author} "${b.title}" ${b.likes} likes`);
+    });
 
-
-
-    process.exit();
+    process.exit(0);
   } catch (err) {
     console.error("Error fetching blogs:", err);
     process.exit(1);
