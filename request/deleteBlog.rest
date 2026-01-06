@@ -1,3 +1,3 @@
-### Delete blog with ID 1
-DELETE http://localhost:3001/api/blogs/3
+### Delete blog with ID
+DELETE http://localhost:3001/api/blogs/9
 Content-Type: application/json

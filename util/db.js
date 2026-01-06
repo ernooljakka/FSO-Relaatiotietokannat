@@ -6,7 +6,7 @@ export const sequelize = new Sequelize(DATABASE_URL, {
   logging: false,
 });
 
-const connectToDatabase = async () => {
+export const connectToDatabase = async () => {
   try {
     await sequelize.authenticate()
     console.log('database connected')
@@ -17,5 +17,3 @@ const connectToDatabase = async () => {
 
   return null
 }
-
-connectToDatabase()
