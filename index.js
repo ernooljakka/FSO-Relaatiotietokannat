@@ -3,12 +3,17 @@ import { PORT } from './util/config.js';
 import { connectToDatabase } from './util/db.js';
 import { errorHandler } from './util/middleware.js';
 import blogsRouter from './controllers/blogs.js';
+import loginRouter from './controllers/login.js'
+import usersRouter from './controllers/users.js'
+
 
 const app = express();
 
 app.use(express.json());
 
 app.use('/api/blogs', blogsRouter);
+app.use('/api/users', usersRouter)
+app.use('/api/login', loginRouter)
 
 app.use(errorHandler)
 

@@ -1,3 +1,4 @@
 ### Delete blog with ID
-DELETE http://localhost:3001/api/blogs/9
+DELETE http://localhost:3001/api/blogs/3
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkVPIiwiaWQiOjEsImlhdCI6MTc2NzcwNTk3NX0.7FjXYknPUVpZhcqvtoZjqOwY4E9XtplC1LHvN2NxRkI

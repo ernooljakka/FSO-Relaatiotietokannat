@@ -1,11 +1,7 @@
-### Create a new blog
-POST http://localhost:3001/api/blogs
+PUT http://localhost:3001/api/users/eo@gmail.com
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkVPIiwiaWQiOjEsImlhdCI6MTc2NzcwNTk3NX0.7FjXYknPUVpZhcqvtoZjqOwY4E9XtplC1LHvN2NxRkI
 
 {
-  "author": "Erno",
-  "title": "toka blogi",
-  "url": "https://toka.com/",
-  "likes": 11
+  "username": "eo"
 }
