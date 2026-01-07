@@ -29,7 +29,7 @@ if (search) {
   order: [
     ['likes', 'DESC']
   ],
-  attributes: { exclude: ['userId'] },
+  attributes: { exclude: ['user_id'] },
   include: {
     model: User,
     attributes: ['name']
@@ -41,7 +41,14 @@ if (search) {
 router.post('/', tokenExtractor, async (req, res, next) => {
   try {
     const user = await User.findByPk(req.decodedToken.id)
-    const blog = await Blog.create({...req.body, userId: user.id});
+
+    if (req.body.year < 1991 || req.body.year > new Date().getFullYear()) {
+      return res.status(400).json({
+        error: `Year must be between 1991 and ${new Date().getFullYear()}`
+      });
+    }
+
+    const blog = await Blog.create({...req.body, user_id: user.id});
     res.status(201).json(blog);
   } catch (error) {
     next(error)

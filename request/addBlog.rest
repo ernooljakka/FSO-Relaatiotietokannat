@@ -1,11 +1,12 @@
 ### Create a new blog
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVvQGdtYWlsLmNvbSIsImlkIjoxLCJpYXQiOjE3Njc3NzM1NTJ9.pXYE5b9RQEYzqWpGZBjkSzkfKU7FBOac_6flzWjq208
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InZ2QGdtYWlsLmNvbSIsImlkIjozLCJpYXQiOjE3Njc3ODM1NzB9.2rrQGuHJdYV2crTMqlyx01uUdJST9AT-1V__LvoBPwE
 
 {
-  "author": "code master",
-  "title": "React/Redux",
-  "url": "https://react.com/Redux",
-  "likes": 10
+  "author": "Ville",
+  "title": "Travel Blog2",
+  "url": "https://VilleTravels.com",
+  "likes": 24,
+  "year": 2010
 }
