@@ -1,11 +1,11 @@
 ### Create a new blog
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkVPIiwiaWQiOjEsImlhdCI6MTc2NzcwNTk3NX0.7FjXYknPUVpZhcqvtoZjqOwY4E9XtplC1LHvN2NxRkI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVvQGdtYWlsLmNvbSIsImlkIjoxLCJpYXQiOjE3Njc3NzM1NTJ9.pXYE5b9RQEYzqWpGZBjkSzkfKU7FBOac_6flzWjq208
 
 {
-  "author": "Erno",
-  "title": "toka blogi",
-  "url": "https://toka.com/",
-  "likes": 11
+  "author": "code master",
+  "title": "React/Redux",
+  "url": "https://react.com/Redux",
+  "likes": 10
 }

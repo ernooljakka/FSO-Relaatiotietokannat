@@ -1,8 +1,8 @@
-// routes/blogs.js
 import { Router } from 'express';
 import { Blog } from '../models/index.js';
 import { User } from '../models/index.js';
 import { tokenExtractor }  from '../util/middleware.js'
+import { Op } from 'sequelize';
 
 const router = Router();
 
@@ -12,7 +12,23 @@ const BlogFinder = async (req, res, next) => {
 }
 
 router.get('/', async (req, res) => {
+
+  const search = req.query.search;
+
+  const where = {};
+
+if (search) {
+  where[Op.or] = [
+    { title: { [Op.iLike]: `%${search}%` } },
+    { author: { [Op.iLike]: `%${search}%` } }
+  ];
+}
+
   const blogs = await Blog.findAll({
+  where,
+  order: [
+    ['likes', 'DESC']
+  ],
   attributes: { exclude: ['userId'] },
   include: {
     model: User,
