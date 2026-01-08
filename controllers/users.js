@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { User } from '../models/user.js';
 import { Blog } from '../models/blog.js';
 import { tokenExtractor } from '../util/middleware.js';
+import { Op } from 'sequelize';
 
 const router = Router();
 
@@ -14,6 +15,39 @@ router.get('/', async (req, res) => {
   })
   res.json(users)
 })
+
+router.get('/:id', async (req, res, next) => {
+  try {
+
+    let read = {
+      [Op.in]: [true, false]
+    }
+    if ( req.query.read ) {
+      read = req.query.read === "true"
+    }
+ 
+    const user = await User.findByPk(req.params.id, {
+      include: [
+        {
+          model: Blog,
+          as: 'readings',
+          through: {
+            attributes: {exclude: ['user_id', 'blog_id', 'blogId']},
+            where: {read} 
+          },
+        }
+      ]
+    })
+
+    if (!user) return res.status(404).end()
+
+    res.json(user)
+
+  } catch (err) {
+    next(err)
+  }
+})
+
 
 router.post('/', async (req, res) => {
   try {
