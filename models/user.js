@@ -21,8 +21,21 @@ User.init({
     type: DataTypes.STRING,
     allowNull: false
   },
+  createdAt: {
+  type: DataTypes.DATE,
+  allowNull: false,
+  },
+  updatedAt: {
+    type: DataTypes.DATE,
+    allowNull: false,
+  },
+  userDisabled: {
+    type: DataTypes.BOOLEAN,
+    allowNull: false,
+    defaultValue: false,
+    field: 'user_disabled'
+  },
 }, {
   sequelize,
-  timestamps: true,
   modelName: 'user'
 })

@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { Blog } from '../models/index.js';
 import { User } from '../models/index.js';
-import { tokenExtractor }  from '../util/middleware.js'
+import { tokenExtractor, sessionValidator, disabledValidation }  from '../util/middleware.js'
 import { Op } from 'sequelize';
 
 const router = Router();
@@ -38,9 +38,11 @@ if (search) {
   res.json(blogs);
 });
 
-router.post('/', tokenExtractor, async (req, res, next) => {
+router.post('/', tokenExtractor, sessionValidator, disabledValidation, async (req, res, next) => {
   try {
     const user = await User.findByPk(req.decodedToken.id)
+
+    console.log(user.userDisabled);
 
     if (req.body.year < 1991 || req.body.year > new Date().getFullYear()) {
       return res.status(400).json({
@@ -63,7 +65,7 @@ router.get('/:id', BlogFinder, async (req, res) => {
   }
 });
 
-router.delete('/:id', BlogFinder, tokenExtractor, async (req, res) => {
+router.delete('/:id', BlogFinder, tokenExtractor, sessionValidator, disabledValidation, async (req, res) => {
   if (req.blog && req.decodedToken) {
     await req.blog.destroy();
     res.status(204).end();

@@ -1,7 +1,7 @@
-PUT http://localhost:3001/api/users/eo@gmail.com
+PUT http://localhost:3001/api/users/eo2@gmail.com
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkVPIiwiaWQiOjEsImlhdCI6MTc2NzcwNTk3NX0.7FjXYknPUVpZhcqvtoZjqOwY4E9XtplC1LHvN2NxRkI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVvQGdtYWlsLmNvbSIsImlkIjoxLCJpYXQiOjE3Njc4Nzk3NjV9.jxvbhtqn0Uhmk2NYZEEJchCkEjhyE_Od6O_B2WzGGuY
 
 {
-  "username": "eo"
+  "username": "eo@gmail.com"
 }

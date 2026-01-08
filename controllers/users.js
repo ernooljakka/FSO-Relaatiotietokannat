@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { User } from '../models/user.js';
 import { Blog } from '../models/blog.js';
-import { tokenExtractor } from '../util/middleware.js';
+import { tokenExtractor, sessionValidator, disabledValidation } from '../util/middleware.js';
 import { Op } from 'sequelize';
 
 const router = Router();
@@ -58,7 +58,7 @@ router.post('/', async (req, res) => {
   }
 })
 
-router.put('/:username', tokenExtractor, async (req, res, next) => {
+router.put('/:username', tokenExtractor, sessionValidator, disabledValidation, async (req, res, next) => {
   try {
     const user = await User.findByPk(req.decodedToken.id)
     user.username = req.body.username

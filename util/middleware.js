@@ -1,5 +1,7 @@
 import jwt from 'jsonwebtoken'
 import { SECRET } from './config.js'
+import { Session } from '../models/session.js'
+import { User } from '../models/user.js'
 
 export const errorHandler = (error, request, response, next) => {
   console.error(error.message)
@@ -40,6 +42,32 @@ export const tokenExtractor = (req, res, next) => {
   } else {
     return res.status(401).json({ error: 'token missing' })
   }
+  next()
+}
+
+export const sessionValidator = async (req, res, next) => {
+  const authorization = req.get('authorization')
+  const token = authorization.substring(7)
+
+  const session = await Session.findOne({
+    where: { token }
+  })
+
+  if (!session) {
+    return res.status(401).json({ error: 'session expired or invalid' })
+  }
+
+  next()
+}
+
+export const disabledValidation = async (req, res, next) => {
+
+  const user = await User.findByPk(req.decodedToken.id)
+
+  if (user.userDisabled === true) {
+    res.status(403).json({ error: 'user disabled' });
+  }
+
   next()
 }
 

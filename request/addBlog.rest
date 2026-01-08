@@ -1,11 +1,11 @@
 ### Create a new blog
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InZ2QGdtYWlsLmNvbSIsImlkIjozLCJpYXQiOjE3Njc3ODM1NzB9.2rrQGuHJdYV2crTMqlyx01uUdJST9AT-1V__LvoBPwE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InZ2QGdtYWlsLmNvbSIsImlkIjozLCJpYXQiOjE3Njc4ODA5MTJ9.68PA8Ukct7PtI3RScgAdUGYHwyxGfYLpnSSbYDxC8k0
 
 {
   "author": "Ville",
-  "title": "Travel Blog2",
+  "title": "Travel disabled",
   "url": "https://VilleTravels.com",
   "likes": 24,
   "year": 2010

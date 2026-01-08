@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { ReadingList } from '../models/readinglist.js';
-import { tokenExtractor } from '../util/middleware.js';
+import { tokenExtractor, sessionValidator, disabledValidation } from '../util/middleware.js';
 
 const router = Router();
 
@@ -20,7 +20,7 @@ router.post('/', async (req, res, next) => {
   }
 })
 
-router.put('/:id', tokenExtractor, async (req, res) => {
+router.put('/:id', tokenExtractor, sessionValidator, disabledValidation, async (req, res) => {
 
   try {
 
