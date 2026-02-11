@@ -12,7 +12,9 @@ PostgreSQL can be started by running `docker compose up -d` in the project root.
 In the project root run:
 
 `npm install` # to install necessary dependencies 
+
 `npm start` # to start the server
+
 `npm run seed` # Seed the database with demo users and blogs 
 
 After seeding, you can view the added data at:
