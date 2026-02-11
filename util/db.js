@@ -11,6 +11,7 @@ export const sequelize = new Sequelize(DATABASE_URL, {
 export const connectToDatabase = async () => {
   try {
     await sequelize.authenticate()
+    await sequelize.query('CREATE SCHEMA IF NOT EXISTS public;');
     await runMigrations()
     console.log('database connected')
   } catch (err) {
